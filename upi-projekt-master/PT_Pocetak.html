@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bottle web project template">
+    <meta name="author" content="datamate">
+    <link rel="icon" type='image/x-icon' href="">        
+    <title>Kviz</title>
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/custom.js"></script>
+    
+    <!-- <script type="text/javascript" src="/static/bootstrap.min.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      
+      body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        background-color:#d3dce6;
+        font-family: "Lato" ;
+        background: linear-gradient(to right, #a1d3cf, #f6f1d3);
+      }
+      h1{
+          text-align: center;
+          font-weight:inherit;
+          font-size:38px;
+          font-family:Georgia, 'Times New Roman', Times, serif;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(85, 192, 183);
+        position: sticky; /*da ostane na vrhu traka*/
+      }
+
+      li {
+        
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color:white;
+        text-align: center;
+        padding: 14px 16px 14px 14px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: rgb(69, 156, 149);
+      }
+
+      #pitanjakont {
+          display: inline-block;
+          position: absolute;
+          top: 150px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          background-color: rgb(84, 92, 92);
+          width: 750px;
+          height: 550px;
+          border: 5px solid rgb(71, 77, 71);        
+        }
+      .ulogiraj{
+        float: right; 
+      }
+      .nagradeOdgovori{
+        display: inline-block;
+        position: absolute;
+        right: 60px;
+        
+        
+
+      }
+      .pogresniOdgovori{
+        display: inline-block;
+        position: absolute;
+        
+        left: 20px;
+      }
+      .bombe{
+        width: 80px;
+        height: 80px;
+      }
+      #nick{
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 200px;
+          height: 50px;
+          
+      }
+      #click{
+          display: block;
+          position: absolute;
+          top: 150px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100px;
+          height: 50px;
+      }
+      .next{
+          display: block;
+          position: absolute;
+          top: 250px;
+          bottom: 0;
+          left: 350px;
+          right: 0px;
+          font-size: 18px;
+          margin:auto;
+          width:90px;
+          height: 40px;
+          border: none;
+          cursor: pointer;
+          border-radius: 7px;
+          box-shadow: 0 8px 16px
+      }
+      .q{
+          display: block;
+          padding-top: 30px;
+          padding-left: 35px;
+          font-size: 25px; 
+          
+      }
+      .rad{
+         display: flex;
+         flex-direction: column;
+         margin-top: 35px;
+         margin-left:65px;
+         
+           
+        }
+      .lab{
+          display:inline;
+          font-size:25px;
+          padding-left: 105px;
+          }
+/*______________________________ISPOD OVOG JE ZA NAGRADU ZA DIVOVE I POKAZIVANJE OBAVIJESTI______________________________*/ 
+      /*achievement-paneNagrada cijeli okvir dolazne obavijesti*/
+      .achievement-paneNagrada {
+          width: 465px;
+          height: 55px;
+          margin: 5px;
+          
+          
+        }
+      /*ikonica trofeja s vanjskog izvora*/
+      .iconNagrada {
+          width: 55px;
+          height: 55px;
+          top:20px;
+          left: 0px;
+          background: url(https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/121-32.png), linear-gradient(to bottom, rgba(249,194,12,1) 0%,rgba(255,149,11,1) 100%);
+          background-repeat: no-repeat;
+          background-position: center center;
+          border-radius: 12px;
+          border: 2px solid #B04F0B;
+          float: left;
+          box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+          box-sizing: border-box;
+          position: relative;
+          
+        }
+      
+      /*Unutarnji zaobljeni prozor u kojem se nalazi tekst obavijesti*/
+      .textNagrada {
+          width: 400px;
+          height: 55px;
+          top:10px;
+          left: 0px;
+          background-repeat: no-repeat;
+          background-position: center center;  
+          border-radius: 12px;
+          border: 2px solid black;
+          float: left;
+          margin-left: 10px;
+          box-sizing: border-box;
+          position: relative;
+          padding: 18px 20px 14px 20px;
+          box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+          overflow: hidden;
+          /*background-color:#FAEBD7;*/
+        }
+      /* tekst nagrade*/
+      .unlockedNagrada {
+          font: 1.1em Helvetica;
+          font-weight: 700;
+          color: black;
+          position: relative;
+          
+        }
+      /* Tekst koji se pojavljiva zadnji*/
+      .nameNagrada {
+          width:100%;
+          top: 40px;
+          left: 0;
+          float :left;
+          
+        }
+
+      
+
+/*______________________________POVIŠE OVOG ZA NAGRADU______________________________*/
+      
+      
+ 
+ 
+</style>
+
+</head>
+<body>
+  <var id="x" hidden="true">1</var>
+    <ul>
+      <li class="ulogiraj"><a href="/adminSignIn">Log in</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+    
+  </ul>
+  </div>
+  <h1>
+    KVIZ ZNANJA
+  </h1>
+  <div class="pogresniOdgovori">
+    <h1>POGREŠKE</h1>
+    <table>
+      <tr>
+        <th><img src="static/bombaPrazno.jpg" id="prvaPogreska" class="bombe"></th>
+        <th><img src="static/bombaPrazno.jpg" id="drugaPogreska" class="bombe"></th>
+        <th><img src="static/bombaPrazno.jpg" id="trecaPogreska" class="bombe"></th>
+      </tr>
+    </table>
+  </div>
+  <div id="pitanjakont">
+    %for pita in pitanja:
+
+     <p class="questions" hidden="true">{{pita[2]}}</p>
+     <p class="1" hidden="true">{{pita[3]}}</p>
+     <p class="2" hidden="true">{{pita[4]}}</p>
+     <p class="3" hidden="true">{{pita[5]}}</p>
+     <p class="4" hidden="true">{{pita[6]}}</p>
+     <p class="5" hidden="true">{{pita[7]}}</p>
+     
+
+      
+        
+    %end
+    <div id="sustavNagradivanja">
+      <div class="achievement-paneNagrada">
+          <div class="iconNagrada"></div>
+          <div class="textNagrada">
+            <span class="unlockedNagrada">USPJEH!</span>
+            <span class="unlockedNagrada nameNagrada" id="opisNagrade">Točno ste odgovorili na prvih 5 pitanja    <span class="tkNagrada"></span></span>
+          </div>
+        </div>
+  </div>
+    <label id="qpitanje"class="q"></label>
+         
+    <input id="A" class="rad" type="radio" name="answer" value=""> <label class="lab" id="a" for="A"></label>
+    <input id="B"  class="rad" type="radio" name="answer" value=""> <label class="lab" id="b" for="B"></label>
+    <input id="C"  class="rad" type="radio" name="answer" value=""> <label class="lab" id="c" for="C"></label>
+    <input id="D"  class="rad" type="radio" name="answer" value=""> <label class="lab" id="d" for="D"></label>
+    <button id="dalje" class="next">Dalje &#8250</button>
+  </div>
+  <div class="nagradeOdgovori">
+    <h1>NAGRADE</h1>
+    <img src="" id="ikonaNagrada">
+  </div>
+  <script>
+    var br=-1;
+    var nizQ;
+    var nizA;
+    var nizB;
+    var nizC;
+    var nizD;
+    var nizT;
+    var brTocno=0;
+    var brNetocno=0;
+    var maksimalan=0;
+    var iskoristeni=[0];
+
+    window.onload=function(){
+      nizQ=document.getElementsByClassName("questions");
+      nizA=document.getElementsByClassName("1");
+      nizB=document.getElementsByClassName("2");
+      nizC=document.getElementsByClassName("3");
+      nizD=document.getElementsByClassName("4");
+      nizT=document.getElementsByClassName("5");
+      var obavijest = document.getElementById('sustavNagradivanja');
+      obavijest.style.display='none';
+      document.getElementById("dalje").addEventListener("click", Dalje);
+      
+      
+      
+      Dalje();
+    }
+  function Postavi(){
+      console.log(nizQ[0].innerText);
+      document.getElementById("qpitanje").innerHTML=nizQ[br].innerHTML;
+
+      document.getElementById("a").innerText=nizA[br].innerText;
+      document.getElementById("b").innerText=nizB[br].innerText;
+      document.getElementById("c").innerText=nizC[br].innerText;
+      document.getElementById("d").innerText=nizD[br].innerText;
+
+      document.getElementById("A").value=nizA[br].innerText;
+      document.getElementById("B").value=nizB[br].innerText;
+      document.getElementById("C").value=nizC[br].innerText;
+      document.getElementById("D").value=nizD[br].innerText;
+      
+    }
+
+  function stvoriNagradu(){
+    var obavijest = document.getElementById('sustavNagradivanja');
+    obavijest.style.display='block';
+
+    $('.achievement-paneNagrada').children().css({opacity: 0});
+    
+    var middle = ($(window).width() / 4) - ($('.achievement-pane').width() / 4);
+    
+    $('.iconNagrada').animate({top: 0, left: 0, opacity: 1}, 300);
+    $('.textNagrada').delay(1100).animate({top: 0, left: 0, opacity: 1}, 300);
+    $('.achievement-pane').delay(700).animate({left: middle+'px'}, 300);
+    $('.textNagrada').children().eq(0).delay(2500).animate({position: 'relative', left: '120%' });
+    $('.textNagrada').children().eq(1).delay(2700).animate({position: 'relative', top: '-20px' });
+    
+    $('.iconNagrada').delay(4500).animate({top: '-20px', left: '-0px', opacity: 0}, 300);
+    $('.textNagrada').delay(3700).animate({top: '-20px', left: '-0px', opacity: 0}, 300);
+    }
+
+
+    function Dalje(){
+      var nagrada=document.getElementById("ikonaNagrada");
+      var opisDobiveni=document.getElementById("opisNagrade");
+      var checkedR;
+      if(br!=-1){
+        for(var i = 0;i<document.getElementsByClassName("rad").length;i++){
+        if(document.getElementsByClassName("rad")[i].checked==true){
+          checkedR=document.getElementsByClassName("rad")[i].id;
+          }
+        }
+        if(checkedR==null){
+          alert("Odgovor nije odabran!");
+          return;
+        }
+        if(checkedR==nizT[br].innerText){
+          brTocno+=1;
+          //alert(brTocno);
+          if(brTocno==1 && brTocno>maksimalan){
+            maksimalan=brTocno;
+            opisDobiveni.innerText="Prvi točan odgovor u kvizu!!!";
+            nagrada.src="static/broncaTrofej.jpg";
+            stvoriNagradu();
+            
+          }
+          if(brTocno==3 && brTocno>maksimalan){
+            maksimalan=brTocno;
+            opisDobiveni.innerText="Točan treći odgovor zaredom!!!";
+            nagrada.src="static/srebroTrofej.jpg";
+            stvoriNagradu();
+          }
+          if(brTocno===5 && brTocno>maksimalan){
+            maksimalan=brTocno;
+            opisDobiveni.innerText="Točan peti odgovor zaredom!!!";
+            nagrada.src="static/zlatniTrofej.jpg";
+            stvoriNagradu();
+
+            //alert("tocno 5 odg!");
+          }
+          if(nizA.length>9)
+        {
+          br--;
+          br = Math.floor((Math.random() * (nizA.length)-1) + 1);
+          if(iskoristeni.includes(br)){
+          while(iskoristeni.includes(br)){
+            br = Math.floor((Math.random() * (nizA.length)-1) + 1);
+          }
+          
+          iskoristeni.push(br);}
+          else{
+          iskoristeni.push(br);
+          }
+          //alert(br);
+          br--;
+
+        
+        }
+        ukPitanja+=1;}
+        else{
+          //alert("Netočan odgovor!");
+          brNetocno+=1;
+          brTocno=0;
+          if(brNetocno==1){
+            var slika = document.getElementById("prvaPogreska");
+            slika.src="static/bombaBoom.jpg";
+          }
+          if(brNetocno==2){
+            var slika = document.getElementById("drugaPogreska");
+            slika.src="static/bombaBoom.jpg";
+          }
+          if(brNetocno==3){
+            var slika = document.getElementById("trecaPogreska");
+            slika.src="static/bombaBoom.jpg";
+            //alert("POGRIJEŠILI STE 3 PUTA. IGRA JE GOTOVA!!");
+
+            window.location="/poraz";
+          }
+          return;
+        }
+        
+        if(ukPitanja==10 || ukPitanja==nizA.length-1){
+        //alert("IGRA GOTOVA");
+        window.location="/pobjeda";
+      }
+        
+      }
+      
+      br++;
+      Postavi();
+      
+    }
+    
+    var br=-1;
+    var brNetocno=0;
+    var brTocno=0;
+    var maksimalan=0;
+    var ukPitanja=0;
+    
+    
+    
+        
+  </script>
+  
+</body>
+</html>

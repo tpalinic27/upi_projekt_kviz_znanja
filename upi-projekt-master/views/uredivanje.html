@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bottle web project template" />
+    <meta name="author" content="datamate" />
+    <title>My UPI Project</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/custom.js"></script>
+    <!-- <script type="text/javascript" src="/static/bootstrap.min.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      font-face {
+          font-family: 'Serif';
+          font-style: normal;
+          font-weight: 400;
+      }
+      body {
+        background-color:#d3dce6;
+        font-family: "Lato" ;
+        background: linear-gradient(to right, #a1d3cf, #f6f1d3);
+      }
+      input[type=text] {
+        margin-left: 10px;
+        width: 30%;
+        padding: 10px 18px;
+        margin: 8px 12;
+        box-sizing: border-box;
+      }
+
+      input[type=submit] {
+        padding:20px 15px; 
+        background: rgb(85, 192, 142); 
+        border:0 none;
+        cursor:pointer;
+        border-radius: 25px; 
+     }
+
+    </style>
+  </head>
+
+  <body>
+    <div>
+        <h1 align="center">Uređivanje</h1>
+      </div>
+      <div>
+        <form action="/uredivanje{{uredenoPitanje}}" method="POST">
+          <input type="number" value="{{broj}}" name="brpit" />
+          <input type="text" value="{{pitanje}}" name="pitanje" /> </br>
+          <br><label for="">Ponudeni odgovori:</label></br>
+          
+          <br>A)<input type="text" value="{{odgA}}" name="odgA" />
+          </br><br>B)<input type="text" value="{{odgB}}" name="odgB" />
+          </br><br>C)<input type="text" value="{{odgC}}" name="odgC" />
+          </br><br>D)<input type="text" value="{{odgD}}" name="odgD" /></br>
+          <br><label for="">Tocan odgovor je:</label>
+          <input
+            type="text"
+            value="{{tocan}}"
+            name="tocanOdg"
+          />
+          <input type="submit" value="Spremi" name="spremi" />
+        </form>
+      </div>
+  </body>
+</html>

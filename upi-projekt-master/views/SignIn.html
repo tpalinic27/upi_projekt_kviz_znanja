@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bottle web project template" />
+    <meta name="author" content="datamate" />
+    <title>My UPI Project</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/custom.js"></script>
+    <!-- <script type="text/javascript" src="/static/bootstrap.min.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+      body {
+          background-color: #44d396;
+          font-family: "Serif";
+      }
+
+    </style>
+  </head>
+ 
+  <body>
+    <div>
+      <h1 align="center">Admin Sign In</h1>
+    </div>
+    <div class="wrap">
+        <div>
+        </div>
+      <form action="/adminSignIn" method="POST">
+        <input type="text" placeholder="username" name="admin" />
+        <input type="text" placeholder="password" name="sifra" />
+        <input type="submit" value="Sign in" name="signin" />
+      </form>
+    </div>
+  </body>
+</html>

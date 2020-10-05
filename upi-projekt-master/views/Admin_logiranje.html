@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Login </title>
+    <style>
+    font-face {
+        font-family: 'Serif';
+        font-style: normal;
+        font-weight: 400;
+    }
+
+	body {
+	background-color:#d3dce6;
+	font-family: "Lato" ;
+  background: linear-gradient(to right, #a1d3cf, #f6f1d3);
+ }
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(85, 192, 183);
+  position: sticky; /*da ostane na vrhu traka*/
+}
+
+li {
+  
+  float: left;
+}
+
+li a {
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgb(69, 156, 149);
+}
+.ulogiraj{
+  float: right; 
+}
+
+.wrap {
+    width: 250px;
+    height: auto;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.wrap .unesi {
+    border: none;
+    background: #fff;
+    font-family: Serif;
+    font-weight: 700;
+    display:block;
+    height: 40px;
+    outline:none;
+    width: calc(100% - 24px);
+    margin: auto;
+    padding: 6px 12px 6px 12px;
+}
+.bar {
+	width: 100%;
+	height: 1px;
+	background: #fff;
+}
+.bar i {
+	width: 95%;
+	margin: auto;
+	height: 1px;
+	display: block;
+	background: #d1d1d1;
+}
+.wrap .unesi[type="text"] {
+	border-radius: 7px 7px 0px 0px;
+}
+
+.forgot_link {
+	color: #AB83DF;
+	color: #AB83DF;
+	text-decoration: none;
+	font-size: 13px;
+	position: relative;
+	left: 190px;
+	top: -35px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+
+
+.prijava
+  {
+	width: 120px;
+	height: 65px;
+    position: absolute;
+    top: 250px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: rgb(85, 192, 142);
+	border-radius:42px;
+	border:none;
+	cursor:pointer;
+	color:#031a12;
+	font-size:20px;
+	padding:10px 20px;
+	box-shadow: 0 8px 16px;
+}
+
+
+  
+	</style>
+	
+	<!-- <link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css" media="sceen" type="text/css"> -->
+</head>
+<ul>
+	<li class="ulogiraj"><a href="/adminSignIn">Log in</a></li>
+	<li><a href="/">Home</a></li>
+	<li><a href="/about">About</a></li>
+  
+</ul>
+<body>
+<h1 class="v"></h1>
+	<div class="wrap">
+		<div>
+		<img src="static/logo.jpg" class="center">
+		</div>
+		<form action="/adminSignIn" method="POST">
+		<input class="unesi" type="text" name="username" placeholder="username"required>
+		<div class="bar">
+			<i></i>
+		</div>
+			<input class="unesi" type="password" placeholder="password" name="password">
+		<br>
+		
+		<input class="prijava" name="kliklog" type="submit">
+	</div>	
+		
+</body>
+</html>
+
+
+
+
+	
+
+

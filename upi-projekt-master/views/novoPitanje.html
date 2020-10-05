@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bottle web project template" />
+    <meta name="author" content="datamate" />
+    <title>My UPI Project</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/custom.js"></script>
+    <!-- <script type="text/javascript" src="/static/bootstrap.min.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      font-face {
+          font-family: 'Serif';
+          font-style: normal;
+          font-weight: 400;
+      }
+      body {
+        background-color:#d3dce6;
+        font-family: "Lato" ;
+        background: linear-gradient(to right, #a1d3cf, #f6f1d3);
+      }
+      input[type=text] {
+        margin-left: 10px;
+        width: 30%;
+        padding: 10px 18px;
+        margin: 8px 12;
+        box-sizing: border-box;
+      }
+      input[type=submit] {
+        padding:20px 15px; 
+        background: rgb(85, 192, 142); 
+        border:0 none;
+        cursor:pointer;
+        border-radius: 25px; 
+     }
+     input[type=number] {
+      margin-left: 10px;
+         }
+
+     #br{
+       padding-left: 20px;
+     }
+
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <h1 align="center">Novo pitanje</h1>
+    </div>
+    <div>
+      <form action="/novo" method="POST">
+        <input type="text" placeholder="Pitanje..." name="pitanje" /> </br>
+        <br><label for=""id=br>Broj pitanja:</label>
+        <br /> 
+        <input type="number" placeholder="broj pitanja" name="brpit" /> </br>
+        <br>A)<input type="text" placeholder="Odgovor pod A" name="odgA" />
+          </br><br>B)<input type="text" placeholder="Odgovor pod B" name="odgB" />
+          </br><br>C)<input type="text" placeholder="Odgovor pod C" name="odgC" />
+          </br><br>D)<input type="text" placeholder="Odgovor pod D" name="odgD" /></br>
+        <br><label for="">Tocan odgovor je:</label>
+        <input
+          type="text"
+          placeholder="Slovo tocnog odgovora"
+          name="tocanOdg"
+        />
+        <input type="submit" value="Spremi" name="spremi" />
+      </form>
+    </div>
+  </body>
+</html>

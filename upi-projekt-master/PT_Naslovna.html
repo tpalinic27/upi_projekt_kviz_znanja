@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bottle web project template">
+    <meta name="author" content="datamate">       
+    <title>Kviz</title>
+    <script src="static/main.js" type="text/javascript"></script>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        background-color:#d3dce6;
+        font-family: "Lato" ;
+        background: linear-gradient(to right, #a1d3cf, #f6f1d3);
+      }
+      h1{
+          text-align: center;
+          font-weight:inherit;
+          font-size:40px;
+          font-family:Georgia, 'Times New Roman', Times, serif;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(85, 192, 183);
+        position: sticky; /*da ostane na vrhu traka*/
+      }
+
+      li {
+        
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color:white;
+        text-align: center;
+        padding: 14px 16px 14px 14px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: rgb(69, 156, 149);
+      }
+
+      #nickkont {
+          display: block;
+          position: absolute;
+          top: 150px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          
+          background-color: rgb(84, 92, 92);
+          width: 750px;
+          height: 580px;
+          border: 5px solid rgb(71, 77, 71);        
+        }
+      .ulogiraj{
+        float: right; 
+      }
+      ::placeholder{
+        color:black;
+        transform: translateX(10%);
+        
+      }
+      #nick{
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0px;
+          right: 0;
+          margin: auto;
+          width: 200px;
+          height: 50px;
+          background-color: rgb(151, 80, 192);
+          border-radius: 15px;
+          border: 1.5px solid black; 
+           
+      }
+    
+  
+      #click{
+          display: block;
+          position: absolute;
+          top: 150px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100px;
+          height: 50px;
+          background-color: rgb(85, 192, 142);
+          color: black;
+          font-size: 20px;
+          border: none;
+          cursor: pointer;
+          border-radius: 29px;
+          text-align: center;
+          box-shadow: 0 8px 16px
+      }
+    </style>
+
+</head>
+    <body>
+    <ul>
+        <li class="ulogiraj"><a href="/adminSignIn">Log in</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        
+    </ul>
+    </div>
+    <h1>
+        KVIZ ZNANJA
+    </h1>
+    <div id="nickkont">
+        
+        <input id="nick" type="nickname" name="nickname" placeholder="Nickname">
+        <button id="click" class="pl">Play</button>
+    </div>
+
+    <script>
+        document.getElementById("click").addEventListener("click", function(){
+            window.location="/igra";
+            localStorage.setItem("brojac", "0");
+        });
+    </script>
+    
+    </body>
+</html>
